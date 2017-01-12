@@ -16,9 +16,9 @@ ncp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
 
-"ubootstrap-core@ssh://github.com/minhhh/UBootstrap.Core.git#v0.0.1":
-  version "0.0.1"
-  resolved "ssh://github.com/minhhh/UBootstrap.Core.git#97c30d53a8b4f6ce1d9737d7bdf4f1e891b8f27f"
+"ubootstrap-core@ssh://github.com/minhhh/UBootstrap.Core.git#v0.0.2":
+  version "0.0.2"
+  resolved "ssh://github.com/minhhh/UBootstrap.Core.git#d6095c3e0652565f72843138b86a60883e20e24e"
   dependencies:
     mkdirp "^0.5.1"
     ncp "^2.0.0"

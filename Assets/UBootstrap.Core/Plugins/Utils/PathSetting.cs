@@ -23,7 +23,7 @@ namespace UBootstrap
 
                     #if UNITY_EDITOR
                     FileSystemHelper.MakeFolderInAssets (defaultAssetFolder);
-                    string fullPath = Path.Combine (Path.Combine ("Assets", AssetFolder), assetFile);
+                    string fullPath = Path.Combine (Path.Combine ("Assets", defaultAssetFolder), assetFile);
                     #endif
 
                     if (instance == null) {

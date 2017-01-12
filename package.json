@@ -1,6 +1,6 @@
 {
   "name": "uboostrap-texturedithering",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Add automatic texture dithering workflow to your project",
   "main": "index.js",
   "author": "Ha.Minh",
@@ -16,6 +16,6 @@
   "dependencies": {
     "ncp": "^2.0.0",
     "mkdirp": "^0.5.1",
-    "ubootstrap-core": "ssh://github.com/minhhh/UBootstrap.Core.git#v0.0.1"
+    "ubootstrap-core": "ssh://github.com/minhhh/UBootstrap.Core.git#v0.0.2"
   }
 }
