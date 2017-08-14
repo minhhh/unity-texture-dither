@@ -1,6 +1,6 @@
 {
   "name": "UBootstrap.TextureDithering",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Add automatic texture dithering workflow to your project",
   "author": "Ha.Minh",
   "license": "MIT",

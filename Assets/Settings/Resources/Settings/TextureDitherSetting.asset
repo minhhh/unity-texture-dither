@@ -11,6 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c163fe184e237477cad222b0d16f28cf, type: 3}
   m_Name: TextureDitherSetting
   m_EditorClassIdentifier: 
-  ditheringAlgorithmSetting: {fileID: 11400000, guid: c7d5916b06893489589db6081a332463,
-    type: 2}
+  ditheringAlgorithmSetting: {fileID: 0}
   DitherDirectorySuffix: Dither
