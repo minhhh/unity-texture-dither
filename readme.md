@@ -35,6 +35,10 @@ All settings currently use `RGBA4444`New dither algorithms can be added easily. 
 
 ## Changelog
 
+**0.0.4**
+
+* Rename to UBootstrap.TextureDithering and fix depdendencies
+
 **0.0.3**
 
 * Refactor ColorSpace to an enum
