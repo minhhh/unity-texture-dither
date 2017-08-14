@@ -72,6 +72,7 @@ namespace UBootstrap
             }
         }
 
+        #if UNITY_EDITOR
         protected static string AssetFolder {
             get {
                 var pathSetting = PathSetting.Instance;
@@ -81,6 +82,7 @@ namespace UBootstrap
                 return Path.Combine (Path.Combine (pathSetting.SettingFolderPrePart, defaultAssetFolder), pathSetting.SettingFolderPostPart);
             }
         }
+        #endif
 
         protected virtual void OnCreated ()
         {

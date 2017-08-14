@@ -2,23 +2,24 @@
 # yarn lockfile v1
 
 
-minimist@0.0.8:
+minimist@0.0.8, "minimist@ssh://github.com/substack/minimist.git#0.0.8":
   version "0.0.8"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
+  resolved "ssh://github.com/substack/minimist.git#3754568bfd43a841d2d72d7fb54598635aea8fa4"
 
-mkdirp@^0.5.1:
+"mkdirp@ssh://github.com/substack/node-mkdirp.git#0.5.1":
   version "0.5.1"
-  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
+  resolved "ssh://github.com/substack/node-mkdirp.git#d4eff0f06093aed4f387e88e9fc301cb76beedc7"
   dependencies:
     minimist "0.0.8"
 
-ncp@^2.0.0:
+"ncp@ssh://github.com/AvianFlu/ncp.git#v2.0.0":
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
+  resolved "ssh://github.com/AvianFlu/ncp.git#93c7c6c719e2a4944dc09a16178b09aef428cdf0"
 
-"ubootstrap-core@ssh://github.com/minhhh/UBootstrap.Core.git#v0.0.2":
-  version "0.0.2"
-  resolved "ssh://github.com/minhhh/UBootstrap.Core.git#d6095c3e0652565f72843138b86a60883e20e24e"
+"ubootstrap-core@ssh://github.com/minhhh/UBootstrap.Core.git#v0.0.12":
+  version "0.0.12"
+  resolved "ssh://github.com/minhhh/UBootstrap.Core.git#e4aeb9da96b435ed925c38cf5d85aa68e3591f5b"
   dependencies:
-    mkdirp "^0.5.1"
-    ncp "^2.0.0"
+    minimist "ssh://github.com/substack/minimist.git#0.0.8"
+    mkdirp "ssh://github.com/substack/node-mkdirp.git#0.5.1"
+    ncp "ssh://github.com/AvianFlu/ncp.git#v2.0.0"

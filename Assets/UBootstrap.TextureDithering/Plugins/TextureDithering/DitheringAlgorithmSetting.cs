@@ -5,14 +5,14 @@ namespace UBootstrap
     [CreateAssetMenu (menuName = "Settings/DitheringAlgorithmSetting")]
     public class DitheringAlgorithmSetting : ScriptableObject
     {
-        public static class ColorSpace
+        public enum ColorSpace
         {
-            public const string RGBA4444 = "RGBA4444";
-            public const string WebSafe = "WebSafe";
-            public const string TrueColor = "TrueColor";
+            RGBA4444 = 1,
+            WebSafe = 2,
+            TrueColor = 3
         }
 
-        public string targetColorSpace;
+        public ColorSpace targetColorSpace;
         public string type;
     }
 }

@@ -1,13 +1,21 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.IO;
+using System;
+using UnityEngine;
+
+
+#if UNITY_EDITOR
 using UnityEditor;
-using System.IO;
+#endif
 
 namespace UBootstrap
 {
     public static class FileSystemHelper
     {
         #if UNITY_EDITOR
+        /// <summary>
+        /// Makes a folder in Assets folder
+        /// </summary>
+        /// <param name="path">The path inside Assets</param>
         public static void MakeFolderInAssets (string path)
         {
             string[] folderNames = path.Split ('/');
@@ -19,6 +27,17 @@ namespace UBootstrap
                 }
                 currentPath = folderPath;
             }
+        }
+
+        public static void SaveToFileInAssets (string content, string path)
+        {
+            try {
+                File.WriteAllText (Path.Combine(Application.dataPath, path), content);
+                AssetDatabase.Refresh ();
+            } catch (Exception e) {
+                Debug.LogError ("An error occurred while saving file: " + e);
+            }
+
         }
         #endif
     }

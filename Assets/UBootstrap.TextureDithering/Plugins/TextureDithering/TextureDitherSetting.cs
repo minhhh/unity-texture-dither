@@ -16,6 +16,7 @@ namespace UBootstrap
         }
 
         public DitheringAlgorithmSetting ditheringAlgorithmSetting;
+        public string DitherDirectorySuffix = "Dither";
     }
 }
 

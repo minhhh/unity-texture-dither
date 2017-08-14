@@ -15,21 +15,21 @@ for (var i = 0, l = project.assets.length; i < l; i++) {
     var file = project.assets[i];
     var src = path.join(__dirname, assetDir, file);
     var dir = path.join(__dirname, '..', '..', assetDir, file);
+    var parentDir = path.dirname(dir);
 
     // Create folder if missing
-    mkdirp(dir, function(err) {
+    mkdirp(parentDir, function(_src, _dir, err) {
         if (err) {
             console.error(err)
             process.exit(1);
         }
 
         // Copy files
-        ncp(src, dir, function(err) {
+        ncp(_src, _dir, function(err) {
             if (err) {
                 console.error(err);
                 process.exit(1);
             }
         });
-    });
+    }.bind(this, src, dir));
 }
-

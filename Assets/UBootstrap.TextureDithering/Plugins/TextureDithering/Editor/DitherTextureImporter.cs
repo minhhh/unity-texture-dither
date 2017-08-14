@@ -8,12 +8,10 @@ namespace UBootstrap.TextureDithering
 {
     class DitherTextureImporter : AssetPostprocessor
     {
-        private const string DitherDirectorySuffix = "Dither";
-
         static bool IsDitherAsset (string assetPath)
         {
             string directory = Path.GetDirectoryName (assetPath);
-            return directory.EndsWith (DitherDirectorySuffix);
+            return directory.EndsWith (TextureDitherSetting.Instance.DitherDirectorySuffix);
         }
 
         void OnPreprocessTexture ()
@@ -21,7 +19,18 @@ namespace UBootstrap.TextureDithering
             var importer = (assetImporter as TextureImporter);
 
             if (IsDitherAsset (assetPath)) {
-                importer.textureFormat = TextureImporterFormat.RGBA32;
+                TextureImporterPlatformSettings platformTextureSettings;
+                platformTextureSettings = importer.GetPlatformTextureSettings ("Android");
+                platformTextureSettings.format = TextureImporterFormat.RGBA32;
+                importer.SetPlatformTextureSettings (platformTextureSettings);
+
+                platformTextureSettings = importer.GetPlatformTextureSettings ("iOS");
+                platformTextureSettings.format = TextureImporterFormat.RGBA32;
+                importer.SetPlatformTextureSettings (platformTextureSettings);
+
+                platformTextureSettings = importer.GetDefaultPlatformTextureSettings ();
+                platformTextureSettings.format = TextureImporterFormat.RGBA32;
+                importer.SetPlatformTextureSettings (platformTextureSettings);
             }
         }
 
@@ -38,7 +47,10 @@ namespace UBootstrap.TextureDithering
                 Debug.LogError (this.GetType ().Name + "::OnPostprocessTexture No dithering found " + TextureDitherSetting.Instance.ditheringAlgorithmSetting.type);
                 return;
             }
-            DitheringBase method = (DitheringBase)Activator.CreateInstance (t, GetFindColorFuncFromString (TextureDitherSetting.Instance.ditheringAlgorithmSetting.targetColorSpace));
+            DitheringBase method = (DitheringBase)Activator.CreateInstance (t, GetFindColorFuncFromColorSpace (TextureDitherSetting.Instance.ditheringAlgorithmSetting.targetColorSpace));
+            if (texture.format != TextureFormat.RGBA32) {
+                Debug.LogError ("DitherTextureImporter::OnPostprocessTexture wrong texture format " + texture.format);
+            }
             texture.SetPixels (method.DoDithering (texture.GetPixels (), texture.width, texture.height));
 
             TextureFormat textureFormat = TextureFormat.RGBA4444;
@@ -52,7 +64,7 @@ namespace UBootstrap.TextureDithering
             importer.textureFormat = textureImporterFormat;
         }
             
-        private static FindColor GetFindColorFuncFromString (string colorSpace)
+        private static FindColor GetFindColorFuncFromColorSpace (DitheringAlgorithmSetting.ColorSpace colorSpace)
         {
             switch (colorSpace) {
             case DitheringAlgorithmSetting.ColorSpace.RGBA4444:

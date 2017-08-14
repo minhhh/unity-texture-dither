@@ -10,11 +10,13 @@ namespace UBootstrap
 {
     public class PathSetting : Setting<PathSetting>
     {
+        #if UNITY_EDITOR
         [MenuItem ("Settings/PathSetting")]
         public static void Edit ()
         {
             Selection.activeObject = Instance;
         }
+        #endif
 
         new public static PathSetting Instance {
             get {
